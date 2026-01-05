@@ -26,7 +26,7 @@
 
 3. **Głosowanie**
    - Po ustalonej liczbie rund:
-     - Domyślnie **4 rundy**
+     - Domyślnie **3 rundy**
      - Liczbę rund można ustalić przed rozpoczęciem gry
    - Gracze **głosują na osobę**, która ich zdaniem nie znała hasła
 

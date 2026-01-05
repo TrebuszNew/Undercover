@@ -1,27 +1,4 @@
-html, body {
-    background-color: #0f1116;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-}
-
-* {
-    user-select: none;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-:root {
-    --main-color: #000000;
-    --second-color: #ffffff;
-}
-
-#main {
-    width: 100%;
-    height: 100%;
-}
-
-#main-content{
+#menu-content{
     width: 100%;
     height: 100%;
     display: flex;
@@ -45,24 +22,6 @@ html, body {
     font-size: 2.5vh;
     color: var(--second-color);
 }
-.button-active {
-    background-color: var(--second-color);
-    color: var(--main-color);
-    border-radius: 12px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border: none;
-    width: 10%;
-}
-.button-unactive {
-    background-color: var(--main-color);
-    color: var(--main-color);
-    border-radius: 12px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border: none;
-    width: 10%;
-}
 
 #categories-setting {
     width: 100%;
@@ -79,15 +38,25 @@ html, body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: var(--main-color);
+    border: 0px;
 }
 .category-card > img {
     aspect-ratio: 1;
     width: 90%;
     padding: 5px;
+    background-color: var(--second-color);
+    border-radius: 15px;
+}
+.not-selected {
+    filter: invert();
 }
 .category-card > p {
     color: var(--second-color);
+    width: 100%;
     margin: 0px;
+    margin-top: 2px;
+    font-size: 1rem;
 }
 
 #start-setting{

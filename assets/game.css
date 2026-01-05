@@ -1,0 +1,79 @@
+#game-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#game-player-title{
+    width: 100%;
+    height: 15%;
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--second-color);
+    font-size: 2rem;
+}
+
+#game-player-rule{
+    width: 100%;
+    height: 75%;
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#game-player-rule-button {
+    width: 80%;
+    height: 80%;
+    border: 0;
+    border-radius: 15px;
+}
+#game-player-rule-button-text {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+#game-player-rule-button-text > div {
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+}
+#game-player-rule-button-text > div > h1 {
+    font-size: 3.5rem;
+    margin: 0px;
+}
+#game-player-rule-button-text > div > img {
+    padding-left: 10px;
+    width: 60px;
+    height: 60px;
+    filter: invert();
+}
+
+#game-next-button-space{
+    width: 100%;
+    height: 10%;
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#game-next-button-space > button {
+    width: 75%;
+    height: 50%;
+}
+.game-player-rule-button-show {
+    background-color: var(--main-color);
+    color: var(--second-color);
+    font-size: 2.5rem;
+
+}
+.game-player-rule-button-hide {
+    background-color: var(--second-color);
+    color: var(--main-color);
+    font-size: 1.5rem;
+}

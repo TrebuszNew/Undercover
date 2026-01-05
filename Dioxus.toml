@@ -1,8 +1,6 @@
 [application]
 
 [web.app]
-
-# HTML title tag content
 title = "undercover"
 
 # include `assets` in web platform
@@ -19,3 +17,6 @@ script = []
 # Javascript code file
 # serve: [dev-server] only
 script = []
+
+[android]
+architectures = ["arm64-v8a"]

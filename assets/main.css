@@ -1,0 +1,41 @@
+html, body {
+    background-color: #0f1116;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    user-select: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:root {
+    --main-color: #000000;
+    --second-color: #ffffff;
+}
+
+#main {
+    width: 100%;
+    height: 100%;
+}
+
+.button-active {
+    background-color: var(--second-color);
+    color: var(--main-color);
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    width: 10%;
+}
+.button-unactive {
+    background-color: var(--main-color);
+    color: var(--main-color);
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    width: 10%;
+}
