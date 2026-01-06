@@ -1,0 +1,29 @@
+#counter-content {
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+    color: var(--second-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 0px;
+}
+
+#counter-content > div {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+#counter-content > div > h1 {
+    font-size: 4rem;
+}
+
+#counter-content > div > h2 {
+    font-size: 3rem;
+}

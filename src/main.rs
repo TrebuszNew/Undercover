@@ -7,6 +7,7 @@ use rand::Rng;
 const MAIN_CSS: Asset = asset!("/assets/main.css");
 const MENU_CSS: Asset = asset!("/assets/menu.css");
 const GAME_CSS: Asset = asset!("/assets/game.css");
+const COUNTER_CSS: Asset = asset!("/assets/counter.css");
 
 const PLAYER_IMG: Asset = asset!("/assets/player.png");
 const UNDERCOVER_IMG: Asset = asset!("/assets/undercover.png");
@@ -56,11 +57,12 @@ fn main() {
 
 #[component]
 fn App() -> Element {
-    let page = use_signal(|| "menu");
+    let page: Signal<&str> = use_signal(|| "menu");
     let player_count = use_signal(|| 4u8);
     let undercover_player = use_signal(|| 0u8);
     let password = use_signal(|| "".to_string());
     let hint = use_signal(|| "".to_string());
+    let selected_categories = use_signal(|| HashMap::<String, bool>::new());
 
     let mut categories_name: Vec<String> = vec![];
     let categories = use_hook(|| io::load_all_categories_embedded(&CATEGORIES_DIR));
@@ -80,6 +82,7 @@ fn App() -> Element {
         document::Link { rel: "stylesheet", href: MAIN_CSS }
         document::Link { rel: "stylesheet", href: MENU_CSS }
         document::Link { rel: "stylesheet", href: GAME_CSS }
+        document::Link { rel: "stylesheet", href: COUNTER_CSS }
 
         if *page.read() == "menu" {
             Menu {
@@ -90,6 +93,7 @@ fn App() -> Element {
                 all_categories: categories,
                 password,
                 hint,
+                selected_categories,
             }
         } else if *page.read() == "game" {
             Game {
@@ -99,6 +103,8 @@ fn App() -> Element {
                 password,
                 hint,
             }
+        } else if *page.read() == "counter" {
+            Counter { page, player_count }
         }
     }
 }
@@ -111,9 +117,9 @@ pub fn Menu(
     undercover_player: Signal<u8>,
     all_categories: ReadOnlySignal<HashMap<String, Vec<io::Card>>>,
     password: Signal<String>,
-    hint: Signal<String>
+    hint: Signal<String>,
+    selected_categories: Signal<HashMap<String, bool>>,
 ) -> Element {
-    let mut selected_categories = use_signal(|| HashMap::<String, bool>::new());
     let is_any_category_selected = *use_memo(move || {
         selected_categories.read().values().any(|&selected| selected)
     }).read();
@@ -269,7 +275,7 @@ pub fn Game(
                 button {
                     onclick: move |_| {
                         if *player_count.read() == *which_player.read() {
-                            page.set("menu");
+                            page.set("counter");
                         }
                         let new = *which_player.read() + 1;
                         which_player.set(new);
@@ -282,4 +288,33 @@ pub fn Game(
             }
         }
     }
+}
+
+#[component]
+pub fn Counter(page: Signal<&'static str>, player_count: Signal<u8>) -> Element {
+    let mut round_counter = use_signal(|| 1u8);
+    let mut witch_player = use_signal(|| 1u8);
+    rsx!(
+        button {
+            onclick: move |_| {
+                let new = (*witch_player.read()) + 1;
+                witch_player.set(new);
+
+                if new > *player_count.read() {
+                    witch_player.set(1);
+                    let new_round = (*round_counter.read()) + 1;
+                    round_counter.set(new_round);
+                }
+
+                if *round_counter.read() > 3 {
+                    page.set("menu");
+                }
+            },
+            id: "counter-content",
+            div {
+                h1 { "Runda: {round_counter}/3" }
+                h2 { "Gracz: {witch_player}" }
+            }
+        }
+    )
 }

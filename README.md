@@ -34,19 +34,11 @@
    - **Gracze wygrywają**, jeśli poprawnie wskażą Undercover'a
    - **Undercover wygrywa**, jeśli nie zostanie odkryty
 
-5. **Inny sposób wygranej**
-   - Jeśli Undercover uzna że zna hasło to może powiedzieć: "Strzelam, HASŁO"
-   - Jeśli to było poprawne hasło wygrywa, jeśli nie przegrywa
-
 ## 🛠️ Technologie
 
 - **Framework**: [Dioxus](https://dioxuslabs.com/)
 - **Język**: Rust
 - **Platformy**: Android
-
-## 🚀 Status projektu
-
-Projekt jest w trakcie tworzenia.
 
 ## 📌 Informacje dodatkowe
 
